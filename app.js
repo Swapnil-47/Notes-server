@@ -248,5 +248,3 @@ app.listen(PORT, (error) =>{
 //adding web socket
 
 
-
-const socket = require('socket.io');
