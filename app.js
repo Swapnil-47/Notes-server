@@ -161,5 +161,9 @@ app.get('/api/getArchiveNotes', (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 
-
-module.exports = app;
+app.listen(PORT, (error) => {
+  if (!error)
+    console.log("Server is successfully running, and app is listening on port " + PORT);
+  else
+    console.log("Error occurred, server can't start", error);
+});
