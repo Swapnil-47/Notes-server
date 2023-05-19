@@ -1,19 +1,16 @@
 const jwt = require('jsonwebtoken');
 
-//(AuthJS)it is nothing but a function
-module.exports = (req,res,next)=>{
-
-  try{
+module.exports = (req, res, next) => {
+  try {
     const token = req.headers.authorization.split(" ")[1];
     console.log(token);
-    jwt.verify(token,"Secret");
-    console.log('user Authenticated from AuthJS')
+    jwt.verify(token, "Secret-Thing"); // Use the same secret you used for token signing in checkUser endpoint
+    console.log('User authenticated from AuthJS');
     next();
-  }
-  catch{
+  } catch (error) {
     console.log(error);
     res.status(401).json({
-      message:'You are not Authorized to access this page'
-    })
+      message: 'You are not authorized to access this page'
+    });
   }
-}
+};
